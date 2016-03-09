@@ -18,4 +18,4 @@
 
 헬퍼 프로그램 사용으로 인해 발생할 수 있는 문제에 대해선 책임지지 않습니다. 
 
-[다운로드] (https://github.com)
+[다운로드] (https://github.com/sunghyuk/D3-Skill-Assistant/releases/download/untagged-ef82e69f8fd5f5461fe1/d3a_1.0.zip)
