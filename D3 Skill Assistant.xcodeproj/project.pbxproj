@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2143C6D1C887A3A00AC3E66 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */; };
+		B2356B851C86995D00EA40B1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B841C86995D00EA40B1 /* MainWindowController.m */; };
+		B2356B871C869AEF00EA40B1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2356B861C869AEF00EA40B1 /* MainWindow.xib */; };
+		B2356B8A1C86A6A900EA40B1 /* D3KeyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B891C86A6A900EA40B1 /* D3KeyConfig.m */; };
+		B2356B901C89794500EA40B1 /* D3KeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B8F1C89794500EA40B1 /* D3KeyTextField.m */; };
+		B2356B931C8D674C00EA40B1 /* D3KeyConfigService.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B921C8D674C00EA40B1 /* D3KeyConfigService.m */; };
+		B2356B991C8E966200EA40B1 /* KeyEventCaptureService.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */; };
+		B2356BA11C8EA40D00EA40B1 /* D3DelayTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */; };
+		B2356BA31C8FA93500EA40B1 /* d3a_statusbar.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */; };
+		B2356BA51C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */; };
+		B2356BA71C8FAA1A00EA40B1 /* d3a_icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */; };
+		B2356BA91C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */; };
+		B2356BAB1C8FAA8B00EA40B1 /* d3a_icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */; };
+		B2356BAD1C8FDD0200EA40B1 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */; };
+		B2E66EDE1C6D9AB000134E90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */; };
+		B2E66EE11C6D9AB000134E90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EE01C6D9AB000134E90 /* main.m */; };
+		B2E66EE31C6D9AB000134E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2E66EE21C6D9AB000134E90 /* Assets.xcassets */; };
+		B2E66EE61C6D9AB000134E90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E66EE41C6D9AB000134E90 /* MainMenu.xib */; };
+		B2E66EF11C6D9AB000134E90 /* d3keyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EF01C6D9AB000134E90 /* d3keyTests.m */; };
+		B2E66EFC1C6D9AB000134E90 /* d3keyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EFB1C6D9AB000134E90 /* d3keyUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2E66EED1C6D9AB000134E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2E66ED11C6D9AB000134E90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2E66ED81C6D9AB000134E90;
+			remoteInfo = d3key;
+		};
+		B2E66EF81C6D9AB000134E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2E66ED11C6D9AB000134E90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2E66ED81C6D9AB000134E90;
+			remoteInfo = d3key;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B2143C671C87F65200AC3E66 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		B2143C6B1C887A3A00AC3E66 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
+		B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWeakTimer.m; sourceTree = "<group>"; };
+		B2356B831C86995D00EA40B1 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		B2356B841C86995D00EA40B1 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		B2356B861C869AEF00EA40B1 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		B2356B881C86A6A900EA40B1 /* D3KeyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3KeyConfig.h; sourceTree = "<group>"; };
+		B2356B891C86A6A900EA40B1 /* D3KeyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3KeyConfig.m; sourceTree = "<group>"; };
+		B2356B8E1C89794500EA40B1 /* D3KeyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3KeyTextField.h; sourceTree = "<group>"; };
+		B2356B8F1C89794500EA40B1 /* D3KeyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3KeyTextField.m; sourceTree = "<group>"; };
+		B2356B911C8D674C00EA40B1 /* D3KeyConfigService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3KeyConfigService.h; sourceTree = "<group>"; };
+		B2356B921C8D674C00EA40B1 /* D3KeyConfigService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3KeyConfigService.m; sourceTree = "<group>"; };
+		B2356B971C8E966200EA40B1 /* KeyEventCaptureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEventCaptureService.h; sourceTree = "<group>"; };
+		B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEventCaptureService.m; sourceTree = "<group>"; };
+		B2356B9F1C8EA40D00EA40B1 /* D3DelayTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DelayTextField.h; sourceTree = "<group>"; };
+		B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DelayTextField.m; sourceTree = "<group>"; };
+		B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_statusbar.png; sourceTree = "<group>"; };
+		B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d3a_icon_16x16@2x.png"; sourceTree = "<group>"; };
+		B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_icon_16x16.png; sourceTree = "<group>"; };
+		B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d3a_icon_256x256@2x.png"; sourceTree = "<group>"; };
+		B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_icon_256x256.png; sourceTree = "<group>"; };
+		B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		B2E66ED91C6D9AB000134E90 /* D3 Skill Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Skill Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B2E66EE01C6D9AB000134E90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2E66EE21C6D9AB000134E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2E66EE51C6D9AB000134E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B2E66EE71C6D9AB000134E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2E66EEC1C6D9AB000134E90 /* D3 Skill Assistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "D3 Skill Assistant.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2E66EF01C6D9AB000134E90 /* d3keyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = d3keyTests.m; sourceTree = "<group>"; };
+		B2E66EF21C6D9AB000134E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2E66EF71C6D9AB000134E90 /* D3 Skill Assistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "D3 Skill Assistant.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2E66EFB1C6D9AB000134E90 /* d3keyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = d3keyUITests.m; sourceTree = "<group>"; };
+		B2E66EFD1C6D9AB000134E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2E66ED61C6D9AB000134E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2356BAD1C8FDD0200EA40B1 /* ApplicationServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EE91C6D9AB000134E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EF41C6D9AB000134E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2E66ED01C6D9AB000134E90 = {
+			isa = PBXGroup;
+			children = (
+				B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */,
+				B2E66EDB1C6D9AB000134E90 /* d3key */,
+				B2E66EEF1C6D9AB000134E90 /* d3keyTests */,
+				B2E66EFA1C6D9AB000134E90 /* d3keyUITests */,
+				B2E66EDA1C6D9AB000134E90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2E66EDA1C6D9AB000134E90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2E66ED91C6D9AB000134E90 /* D3 Skill Assistant.app */,
+				B2E66EEC1C6D9AB000134E90 /* D3 Skill Assistant.xctest */,
+				B2E66EF71C6D9AB000134E90 /* D3 Skill Assistant.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2E66EDB1C6D9AB000134E90 /* d3key */ = {
+			isa = PBXGroup;
+			children = (
+				B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */,
+				B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */,
+				B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */,
+				B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */,
+				B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */,
+				B2143C6B1C887A3A00AC3E66 /* MSWeakTimer.h */,
+				B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */,
+				B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */,
+				B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */,
+				B2E66EE21C6D9AB000134E90 /* Assets.xcassets */,
+				B2E66EE41C6D9AB000134E90 /* MainMenu.xib */,
+				B2E66EE71C6D9AB000134E90 /* Info.plist */,
+				B2E66EDF1C6D9AB000134E90 /* Supporting Files */,
+				B2356B831C86995D00EA40B1 /* MainWindowController.h */,
+				B2356B841C86995D00EA40B1 /* MainWindowController.m */,
+				B2356B861C869AEF00EA40B1 /* MainWindow.xib */,
+				B2356B881C86A6A900EA40B1 /* D3KeyConfig.h */,
+				B2356B891C86A6A900EA40B1 /* D3KeyConfig.m */,
+				B2356B911C8D674C00EA40B1 /* D3KeyConfigService.h */,
+				B2356B921C8D674C00EA40B1 /* D3KeyConfigService.m */,
+				B2143C671C87F65200AC3E66 /* const.h */,
+				B2356B8E1C89794500EA40B1 /* D3KeyTextField.h */,
+				B2356B8F1C89794500EA40B1 /* D3KeyTextField.m */,
+				B2356B9F1C8EA40D00EA40B1 /* D3DelayTextField.h */,
+				B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */,
+				B2356B971C8E966200EA40B1 /* KeyEventCaptureService.h */,
+				B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */,
+			);
+			path = d3key;
+			sourceTree = "<group>";
+		};
+		B2E66EDF1C6D9AB000134E90 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2E66EE01C6D9AB000134E90 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2E66EEF1C6D9AB000134E90 /* d3keyTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2E66EF01C6D9AB000134E90 /* d3keyTests.m */,
+				B2E66EF21C6D9AB000134E90 /* Info.plist */,
+			);
+			path = d3keyTests;
+			sourceTree = "<group>";
+		};
+		B2E66EFA1C6D9AB000134E90 /* d3keyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B2E66EFB1C6D9AB000134E90 /* d3keyUITests.m */,
+				B2E66EFD1C6D9AB000134E90 /* Info.plist */,
+			);
+			path = d3keyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2E66ED81C6D9AB000134E90 /* D3 Skill Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2E66F001C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill Assistant" */;
+			buildPhases = (
+				B2E66ED51C6D9AB000134E90 /* Sources */,
+				B2E66ED61C6D9AB000134E90 /* Frameworks */,
+				B2E66ED71C6D9AB000134E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "D3 Skill Assistant";
+			productName = d3key;
+			productReference = B2E66ED91C6D9AB000134E90 /* D3 Skill Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B2E66EEB1C6D9AB000134E90 /* D3 Skill AssistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2E66F031C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill AssistantTests" */;
+			buildPhases = (
+				B2E66EE81C6D9AB000134E90 /* Sources */,
+				B2E66EE91C6D9AB000134E90 /* Frameworks */,
+				B2E66EEA1C6D9AB000134E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2E66EEE1C6D9AB000134E90 /* PBXTargetDependency */,
+			);
+			name = "D3 Skill AssistantTests";
+			productName = d3keyTests;
+			productReference = B2E66EEC1C6D9AB000134E90 /* D3 Skill Assistant.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B2E66EF61C6D9AB000134E90 /* D3 Skill AssistantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2E66F061C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill AssistantUITests" */;
+			buildPhases = (
+				B2E66EF31C6D9AB000134E90 /* Sources */,
+				B2E66EF41C6D9AB000134E90 /* Frameworks */,
+				B2E66EF51C6D9AB000134E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2E66EF91C6D9AB000134E90 /* PBXTargetDependency */,
+			);
+			name = "D3 Skill AssistantUITests";
+			productName = d3keyUITests;
+			productReference = B2E66EF71C6D9AB000134E90 /* D3 Skill Assistant.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2E66ED11C6D9AB000134E90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = sunghyuk;
+				TargetAttributes = {
+					B2E66ED81C6D9AB000134E90 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					B2E66EEB1C6D9AB000134E90 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B2E66ED81C6D9AB000134E90;
+					};
+					B2E66EF61C6D9AB000134E90 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B2E66ED81C6D9AB000134E90;
+					};
+				};
+			};
+			buildConfigurationList = B2E66ED41C6D9AB000134E90 /* Build configuration list for PBXProject "D3 Skill Assistant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B2E66ED01C6D9AB000134E90;
+			productRefGroup = B2E66EDA1C6D9AB000134E90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2E66ED81C6D9AB000134E90 /* D3 Skill Assistant */,
+				B2E66EEB1C6D9AB000134E90 /* D3 Skill AssistantTests */,
+				B2E66EF61C6D9AB000134E90 /* D3 Skill AssistantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2E66ED71C6D9AB000134E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2356BAB1C8FAA8B00EA40B1 /* d3a_icon_256x256.png in Resources */,
+				B2356BA51C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png in Resources */,
+				B2356BA31C8FA93500EA40B1 /* d3a_statusbar.png in Resources */,
+				B2E66EE31C6D9AB000134E90 /* Assets.xcassets in Resources */,
+				B2E66EE61C6D9AB000134E90 /* MainMenu.xib in Resources */,
+				B2356BA91C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png in Resources */,
+				B2356BA71C8FAA1A00EA40B1 /* d3a_icon_16x16.png in Resources */,
+				B2356B871C869AEF00EA40B1 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EEA1C6D9AB000134E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EF51C6D9AB000134E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2E66ED51C6D9AB000134E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2356B931C8D674C00EA40B1 /* D3KeyConfigService.m in Sources */,
+				B2356B851C86995D00EA40B1 /* MainWindowController.m in Sources */,
+				B2E66EE11C6D9AB000134E90 /* main.m in Sources */,
+				B2356B991C8E966200EA40B1 /* KeyEventCaptureService.m in Sources */,
+				B2356B901C89794500EA40B1 /* D3KeyTextField.m in Sources */,
+				B2356BA11C8EA40D00EA40B1 /* D3DelayTextField.m in Sources */,
+				B2356B8A1C86A6A900EA40B1 /* D3KeyConfig.m in Sources */,
+				B2E66EDE1C6D9AB000134E90 /* AppDelegate.m in Sources */,
+				B2143C6D1C887A3A00AC3E66 /* MSWeakTimer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EE81C6D9AB000134E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E66EF11C6D9AB000134E90 /* d3keyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E66EF31C6D9AB000134E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E66EFC1C6D9AB000134E90 /* d3keyUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2E66EEE1C6D9AB000134E90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2E66ED81C6D9AB000134E90 /* D3 Skill Assistant */;
+			targetProxy = B2E66EED1C6D9AB000134E90 /* PBXContainerItemProxy */;
+		};
+		B2E66EF91C6D9AB000134E90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2E66ED81C6D9AB000134E90 /* D3 Skill Assistant */;
+			targetProxy = B2E66EF81C6D9AB000134E90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B2E66EE41C6D9AB000134E90 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2E66EE51C6D9AB000134E90 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B2E66EFE1C6D9AB000134E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B2E66EFF1C6D9AB000134E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B2E66F011C6D9AB000134E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3key/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3key;
+				PRODUCT_NAME = "D3 Skill Assistant";
+			};
+			name = Debug;
+		};
+		B2E66F021C6D9AB000134E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3key/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3key;
+				PRODUCT_NAME = "D3 Skill Assistant";
+			};
+			name = Release;
+		};
+		B2E66F041C6D9AB000134E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3keyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3keyTests;
+				PRODUCT_NAME = "D3 Skill Assistant";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/D3 Skill Assistant.app/Contents/MacOS/D3 Skill Assistant";
+			};
+			name = Debug;
+		};
+		B2E66F051C6D9AB000134E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3keyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3keyTests;
+				PRODUCT_NAME = "D3 Skill Assistant";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/D3 Skill Assistant.app/Contents/MacOS/D3 Skill Assistant";
+			};
+			name = Release;
+		};
+		B2E66F071C6D9AB000134E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3keyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3keyUITests;
+				PRODUCT_NAME = "D3 Skill Assistant";
+				TEST_TARGET_NAME = d3key;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B2E66F081C6D9AB000134E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = d3keyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sunghyuk.d3keyUITests;
+				PRODUCT_NAME = "D3 Skill Assistant";
+				TEST_TARGET_NAME = d3key;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2E66ED41C6D9AB000134E90 /* Build configuration list for PBXProject "D3 Skill Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2E66EFE1C6D9AB000134E90 /* Debug */,
+				B2E66EFF1C6D9AB000134E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2E66F001C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2E66F011C6D9AB000134E90 /* Debug */,
+				B2E66F021C6D9AB000134E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2E66F031C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill AssistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2E66F041C6D9AB000134E90 /* Debug */,
+				B2E66F051C6D9AB000134E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2E66F061C6D9AB000134E90 /* Build configuration list for PBXNativeTarget "D3 Skill AssistantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2E66F071C6D9AB000134E90 /* Debug */,
+				B2E66F081C6D9AB000134E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2E66ED11C6D9AB000134E90 /* Project object */;
+}
