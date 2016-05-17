@@ -25,12 +25,17 @@
 @property CGKeyCode skillKey5;
 @property CGKeyCode skillKey6;
 
+@property CGKeyCode mouseLeftKey;
+@property CGKeyCode mouseRightKey;
+
 @property NSUInteger skillDelay1;
 @property NSUInteger skillDelay2;
 @property NSUInteger skillDelay3;
 @property NSUInteger skillDelay4;
 @property NSUInteger skillDelay5;
 @property NSUInteger skillDelay6;
+@property NSUInteger mouseLeftDelay;
+@property NSUInteger mouseRightDelay;
 
 + (D3KeyConfig *) defaultKeyConfig;
 

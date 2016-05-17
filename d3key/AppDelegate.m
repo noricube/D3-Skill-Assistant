@@ -63,7 +63,7 @@
     BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((CFDictionaryRef) CFBridgingRetain(options));
     if (accessibilityEnabled) {
         [self registerEventMonitor];
-    }    
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -89,7 +89,7 @@
 
 - (void) startTimer {
     NSLog(@"start timers");
-
+    
     for (int i = 1; i < 7; i++) {
         NSUInteger delay = [[self.keyConfig valueForKey:[NSString stringWithFormat:@"skillDelay%d", i]] unsignedIntegerValue];
         NSUInteger keyCode = [[self.keyConfig valueForKey:[NSString stringWithFormat:@"skillKey%d", i]] unsignedIntegerValue];
@@ -104,6 +104,31 @@
             [self.timers addObject:timer];
         }
     }
+    NSUInteger delay = [[self.keyConfig valueForKey:@"mouseLeftDelay"] unsignedIntegerValue];
+    NSUInteger keyCode = [[self.keyConfig valueForKey:@"mouseLeftKey"] unsignedIntegerValue];
+    if (delay > 0) {
+        if (delay < 100) {
+            delay = 100;
+        }
+        NSTimeInterval interval = delay*1.0 / 1000;
+        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
+        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
+        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
+        [self.timers addObject:timer];
+    }
+    
+    delay = [[self.keyConfig valueForKey:@"mouseRightDelay"] unsignedIntegerValue];
+    keyCode = [[self.keyConfig valueForKey:@"mouseRightKey"] unsignedIntegerValue];
+    if (delay > 0) {
+        if (delay < 100) {
+            delay = 100;
+        }
+        NSTimeInterval interval = delay*1.0 / 1000;
+        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
+        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
+        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
+        [self.timers addObject:timer];
+    }
 }
 
 - (void) stopTimer {
@@ -116,6 +141,33 @@
 
 - (BOOL) isTimerRunning {
     return [self.timers count];
+}
+
+// add by latem
+- (void) postMouseEvent:(CGMouseButton) button eventType:(CGEventType) type
+{
+    CGEventRef mouseEvent = CGEventCreate(NULL);
+    CGPoint mouseLoc = CGEventGetLocation(mouseEvent);
+    CFRelease(mouseEvent);
+    
+    CGEventRef theEvent = CGEventCreateMouseEvent(NULL, type, mouseLoc, button);
+    CGEventSetType(theEvent, type);
+    CGEventPost(kCGHIDEventTap, theEvent);
+    CFRelease(theEvent);
+}
+
+- (void) rightClick
+{
+    [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseDown];
+    sleep(2);
+    [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseUp];
+}
+
+- (void) leftClick
+{
+    [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseDown];
+    sleep(2);
+    [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseUp];
 }
 
 - (void)timerFireMethod:(NSTimer *)timer {
@@ -133,15 +185,24 @@
         OSStatus err = GetProcessForPID(pid, &psn);
         if (err == noErr)
         {
-            // see HIToolbox/Events.h for key codes
-            qKeyDown = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)keyCode, true);
-            qKeyUp = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)keyCode, false);
-            
-            CGEventPostToPSN(&psn, qKeyDown);
-            CGEventPostToPSN(&psn, qKeyUp);
-            
-            CFRelease(qKeyDown);
-            CFRelease(qKeyUp);
+            // mouse event
+            if (keyCode == kCGMouseButtonRight) {
+                [self rightClick];
+            }
+            else if (keyCode == kCGMouseButtonLeft) {
+                [self leftClick];
+            } else {
+                //resultcode = SetFrontProcess(&psn);
+                // see HIToolbox/Events.h for key codes
+                qKeyDown = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)keyCode, true);
+                qKeyUp = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)keyCode, false);
+                
+                CGEventPostToPSN(&psn, qKeyDown);
+                CGEventPostToPSN(&psn, qKeyUp);
+                
+                CFRelease(qKeyDown);
+                CFRelease(qKeyUp);
+            }
         } else {
             NSLog(@"error? %@", [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil]);
         }
@@ -168,7 +229,7 @@
         self.keyConfig = [[D3KeyConfigService sharedService] loadConfig:[note.userInfo objectForKey:@"configId"]];
         NSLog(@"config changed: %@", [note.userInfo objectForKey:@"configId"]);
     }];
-
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:kD3KeyActivatedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * note) {
         NSLog(@"activate event monitor");
         [self registerEventMonitor];
@@ -180,7 +241,7 @@
     }];
 }
 
-#pragma mark event monitor 
+#pragma mark event monitor
 
 - (void) registerEventMonitor {
     if (_gEvent) {
