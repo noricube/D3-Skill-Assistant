@@ -87,48 +87,29 @@
 
 #pragma mark Timer
 
+- (void) addTimer:(NSString *) keyCodeKey andWith:(NSString *) delayKey {
+    NSUInteger delay = [[self.keyConfig valueForKey:delayKey] unsignedIntegerValue];
+    NSUInteger keyCode = [[self.keyConfig valueForKey:keyCodeKey] unsignedIntegerValue];
+    if (delay > 0) {
+        if (delay < 100) {
+            delay = 100;
+        }
+        NSTimeInterval interval = delay*1.0 / 1000;
+        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
+        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
+        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
+        [self.timers addObject:timer];
+    }
+}
+
 - (void) startTimer {
     NSLog(@"start timers");
     
     for (int i = 1; i < 7; i++) {
-        NSUInteger delay = [[self.keyConfig valueForKey:[NSString stringWithFormat:@"skillDelay%d", i]] unsignedIntegerValue];
-        NSUInteger keyCode = [[self.keyConfig valueForKey:[NSString stringWithFormat:@"skillKey%d", i]] unsignedIntegerValue];
-        if (delay > 0) {
-            if (delay < 100) {
-                delay = 100;
-            }
-            NSTimeInterval interval = delay*1.0 / 1000;
-            NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
-            NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
-            MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
-            [self.timers addObject:timer];
-        }
+        [self addTimer:[NSString stringWithFormat:@"skillKey%d", i] andWith:[NSString stringWithFormat:@"skillDelay%d", i]];
     }
-    NSUInteger delay = [[self.keyConfig valueForKey:@"mouseLeftDelay"] unsignedIntegerValue];
-    NSUInteger keyCode = [[self.keyConfig valueForKey:@"mouseLeftKey"] unsignedIntegerValue];
-    if (delay > 0) {
-        if (delay < 100) {
-            delay = 100;
-        }
-        NSTimeInterval interval = delay*1.0 / 1000;
-        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
-        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
-        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
-        [self.timers addObject:timer];
-    }
-    
-    delay = [[self.keyConfig valueForKey:@"mouseRightDelay"] unsignedIntegerValue];
-    keyCode = [[self.keyConfig valueForKey:@"mouseRightKey"] unsignedIntegerValue];
-    if (delay > 0) {
-        if (delay < 100) {
-            delay = 100;
-        }
-        NSTimeInterval interval = delay*1.0 / 1000;
-        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
-        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
-        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
-        [self.timers addObject:timer];
-    }
+    [self addTimer:@"mouseLeftKey" andWith:@"mouseLeftDelay"];
+    [self addTimer:@"mouseRightKey" andWith:@"mouseRightDelay"];
 }
 
 - (void) stopTimer {
@@ -183,13 +164,11 @@
         
         // get TextEdit.app PSN
         OSStatus err = GetProcessForPID(pid, &psn);
-        if (err == noErr)
-        {
+        if (err == noErr) {
             // mouse event
             if (keyCode == kCGMouseButtonRight) {
                 [self rightClick];
-            }
-            else if (keyCode == kCGMouseButtonLeft) {
+            } else if (keyCode == kCGMouseButtonLeft) {
                 [self leftClick];
             } else {
                 //resultcode = SetFrontProcess(&psn);
