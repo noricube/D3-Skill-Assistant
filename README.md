@@ -22,7 +22,7 @@
 ## 다운로드 
 > OS X 10.9 이상 필요합니다. 
 
-- [다운로드 1.1.0] (https://github.com/hjwhang/D3-Skill-Assistant/releases/download/release_1.1.0/D3a111.zip)
+- [다운로드 1.1.0] (https://github.com/sunghyuk/D3-Skill-Assistant/releases/download/release%2F1.1/D3a112.zip)
 - [다운로드  1.0.1](https://github.com/sunghyuk/D3-Skill-Assistant/files/164639/d3a_101.zip) 
 
 
