@@ -35,10 +35,10 @@
     activeSegment.selectedSegment = 0;
     
     _keyFieldNames = @[@"startKeyField",
-                               @"stopKeyField1", @"stopKeyField2", @"stopKeyField3", @"stopKeyField4", @"stopKeyField5",
-                               @"skillKeyField1", @"skillKeyField2", @"skillKeyField3", @"skillKeyField4", @"skillKeyField5", @"skillKeyField6"
-                               ];
-    _delayFieldNames = @[@"skillDelayField1", @"skillDelayField2", @"skillDelayField3", @"skillDelayField4", @"skillDelayField5", @"skillDelayField6"];
+                       @"stopKeyField1", @"stopKeyField2", @"stopKeyField3", @"stopKeyField4", @"stopKeyField5",
+                       @"skillKeyField1", @"skillKeyField2", @"skillKeyField3", @"skillKeyField4", @"skillKeyField5", @"skillKeyField6"
+                       ];
+    _delayFieldNames = @[@"skillDelayField1", @"skillDelayField2", @"skillDelayField3", @"skillDelayField4", @"skillDelayField5", @"skillDelayField6", @"mouseLeftDelayField", @"mouseRightDelayField"];
     
     for (NSString *name in _keyFieldNames) {
         NSTextField *field = [self valueForKey:name];
@@ -98,6 +98,14 @@
         field.stringValue = [NSString stringWithFormat:@"%tu", delay];
     }
     
+    NSTextField *field = [self valueForKey:@"mouseLeftDelayField"];
+    NSUInteger delay = [[config valueForKey:@"mouseLeftDelay"] unsignedIntegerValue];
+    field.stringValue = [NSString stringWithFormat:@"%tu", delay];
+    
+    field = [self valueForKey:@"mouseRightDelayField"];
+    delay = [[config valueForKey:@"mouseRightDelay"] unsignedIntegerValue];
+    field.stringValue = [NSString stringWithFormat:@"%tu", delay];
+    
 }
 
 - (D3KeyConfig *) getFieldValues {
@@ -122,9 +130,17 @@
     for (int i = 1; i < 7; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"skillDelayField%d", i]];
         [config setValue:[NSNumber numberWithUnsignedInteger:[field.stringValue integerValue]]
-                      forKey:[NSString stringWithFormat:@"skillDelay%d", i]];
+                  forKey:[NSString stringWithFormat:@"skillDelay%d", i]];
     }
-
+    
+    NSTextField *field = [self valueForKey:@"mouseLeftDelayField"];
+    [config setValue:[NSNumber numberWithUnsignedInteger:[field.stringValue integerValue]]
+              forKey:@"mouseLeftDelay"];
+    
+    field = [self valueForKey:@"mouseRightDelayField"];
+    [config setValue:[NSNumber numberWithUnsignedInteger:[field.stringValue integerValue]]
+              forKey:@"mouseRightDelay"];
+    
     return config;
 }
 
@@ -143,7 +159,7 @@
     NSLog(@"change configId: %@", configId);
     [self loadConfig:configId];
     [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyConfigChangedNotification object:nil userInfo:@{@"configId":configId}];
-
+    
 }
 
 - (IBAction) selectActiveSegment:(id)sender {
@@ -169,21 +185,21 @@
 }
 
 /*
-- (BOOL)control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector {
-    BOOL result = NO;
-    
-    if ([control isKindOfClass:[D3KeyTextField class]]) {
-        if (commandSelector == @selector(insertTab:))
-        {
-            // tab action:
-            // always insert a tab character and don’t cause the receiver to end editing
-            [textView insertTabIgnoringFieldEditor:self];
-            result = YES;
-        }
-    }
-    
-    return result;
-}
+ - (BOOL)control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector {
+ BOOL result = NO;
+ 
+ if ([control isKindOfClass:[D3KeyTextField class]]) {
+ if (commandSelector == @selector(insertTab:))
+ {
+ // tab action:
+ // always insert a tab character and don’t cause the receiver to end editing
+ [textView insertTabIgnoringFieldEditor:self];
+ result = YES;
+ }
+ }
+ 
+ return result;
+ }
  */
 
 - (void)controlTextDidChange:(NSNotification *)notification {

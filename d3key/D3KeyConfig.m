@@ -14,8 +14,8 @@
 
 @synthesize startKey;
 @synthesize stopKey1, stopKey2, stopKey3, stopKey4, stopKey5;
-@synthesize skillDelay1, skillDelay2, skillDelay3, skillDelay4, skillDelay5, skillDelay6;
-@synthesize skillKey1, skillKey2, skillKey3, skillKey4, skillKey5, skillKey6;
+@synthesize skillDelay1, skillDelay2, skillDelay3, skillDelay4, skillDelay5, skillDelay6, mouseRightDelay, mouseLeftDelay;
+@synthesize skillKey1, skillKey2, skillKey3, skillKey4, skillKey5, skillKey6, mouseLeftKey, mouseRightKey;
 
 #pragma mark member methods
 
@@ -25,8 +25,8 @@
 
 - (BOOL) isStopKey:(CGKeyCode)keyCode {
     return
-        (keyCode == self.stopKey1 || keyCode == self.stopKey2 || keyCode == self.stopKey3 || keyCode == self.stopKey4 || keyCode == self.stopKey5)
-        ? true : false;
+    (keyCode == self.stopKey1 || keyCode == self.stopKey2 || keyCode == self.stopKey3 || keyCode == self.stopKey4 || keyCode == self.stopKey5)
+    ? true : false;
 }
 
 #pragma mark static methods
@@ -46,6 +46,8 @@
     config.skillKey4 = kVK_ANSI_4;
     config.skillKey5 = 0xFF;
     config.skillKey6 = 0xFF;
+    config.mouseRightKey = kCGMouseButtonRight;
+    config.mouseLeftKey = kCGMouseButtonLeft;
     return config;
 }
 
@@ -59,7 +61,7 @@
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.stopKey3] forKey:@"stopKey3"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.stopKey4] forKey:@"stopKey4"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.stopKey5] forKey:@"stopKey5"];
-
+    
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.skillKey1] forKey:@"skillKey1"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.skillKey2] forKey:@"skillKey2"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedShort:self.skillKey3] forKey:@"skillKey3"];
@@ -73,6 +75,10 @@
     [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.skillDelay4] forKey:@"skillDelay4"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.skillDelay5] forKey:@"skillDelay5"];
     [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.skillDelay6] forKey:@"skillDelay6"];
+    
+    [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.mouseLeftDelay] forKey:@"mouseLeftDelay"];
+    [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.mouseRightDelay] forKey:@"mouseRightDelay"];
+    
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
@@ -98,6 +104,13 @@
         self.skillDelay4 = [[aDecoder decodeObjectForKey:@"skillDelay4"] unsignedIntegerValue];
         self.skillDelay5 = [[aDecoder decodeObjectForKey:@"skillDelay5"] unsignedIntegerValue];
         self.skillDelay6 = [[aDecoder decodeObjectForKey:@"skillDelay6"] unsignedIntegerValue];
+        
+        self.mouseLeftKey = kCGMouseButtonLeft;
+        self.mouseRightKey = kCGMouseButtonRight;
+        
+        self.mouseLeftDelay = [[aDecoder decodeObjectForKey:@"mouseLeftDelay"] unsignedIntegerValue];
+        self.mouseRightDelay = [[aDecoder decodeObjectForKey:@"mouseRightDelay"] unsignedIntegerValue];
+        
     }
     return self;
 }

@@ -12,10 +12,10 @@
 {
     
     IBOutlet NSSegmentedControl *configIdSegment;
-    IBOutlet NSSegmentedControl *activeSegment;    
+    IBOutlet NSSegmentedControl *activeSegment;
     
     IBOutlet NSButton *activateButton;
-
+    
     IBOutlet NSTextField *startKeyField;
     
     IBOutlet NSTextField *stopKeyField1;
@@ -37,6 +37,11 @@
     IBOutlet NSTextField *skillDelayField4;
     IBOutlet NSTextField *skillDelayField5;
     IBOutlet NSTextField *skillDelayField6;
+    
+    // add by latem
+    IBOutlet NSTextField *mouseLeftDelayField;
+    IBOutlet NSTextField *mouseRightDelayField;
+    
 }
 
 - (IBAction) selectConfigIdSegemnt:(id)sender;

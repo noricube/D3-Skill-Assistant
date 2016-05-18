@@ -19,3 +19,4 @@
 헬퍼 프로그램 사용으로 인해 발생할 수 있는 문제에 대해선 책임지지 않습니다. 
 
 [다운로드  1.0.1](https://github.com/sunghyuk/D3-Skill-Assistant/files/164639/d3a_101.zip) - OS X 10.9 이상 필요합니다. 
+[다운로드 1.1.0] (https://github.com/hjwhang/D3-Skill-Assistant/releases/download/release_1.1.0/D3a111.zip)
