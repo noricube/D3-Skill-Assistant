@@ -14,6 +14,7 @@
 
 @property (strong) MainWindowController *windowController;
 @property (strong, nonatomic) IBOutlet NSMenu *statusMenu;
+@property (strong, nonatomic) IBOutlet NSMenuItem *aboutMenuItem;
 @property (strong, nonatomic) NSStatusItem *statusBar;
 
 - (IBAction)statusPreferences:(id)sender;
