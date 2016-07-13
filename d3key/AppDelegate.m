@@ -41,6 +41,12 @@
     
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
+    
+    // app name, version
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    NSString *aboutString = [NSString stringWithFormat:@"%@ %@", [info objectForKey:@"CFBundleDisplayName"], [info objectForKey:@"CFBundleShortVersionString"]];
+    self.aboutMenuItem.title = aboutString;
+    
 }
 
 - (void) applicationWillFinishLaunching:(NSNotification *)notification {
