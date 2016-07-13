@@ -9,8 +9,8 @@
 #ifndef const_h
 #define const_h
 
-//static NSString * const kDiablo3AppId = @"com.blizzard.diablo3";
-static NSString * const kDiablo3AppId = @"com.github.atom";
+static NSString * const kDiablo3AppId = @"com.blizzard.diablo3";
+//static NSString * const kDiablo3AppId = @"com.github.atom";
 
 static NSString * const kD3KeyConfigUserDefaultsKey = @"d3keyconfig";
 
