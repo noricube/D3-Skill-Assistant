@@ -148,14 +148,14 @@
 - (void) rightClick
 {
     [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseDown];
-    sleep(2);
+    usleep(10);
     [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseUp];
 }
 
 - (void) leftClick
 {
     [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseDown];
-    sleep(2);
+    usleep(10);
     [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseUp];
 }
 
