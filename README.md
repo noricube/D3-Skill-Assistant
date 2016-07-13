@@ -22,11 +22,13 @@
 ## 다운로드 
 > OS X 10.9 이상 필요합니다. 
 
-- [다운로드 1.1.0] (https://github.com/sunghyuk/D3-Skill-Assistant/releases/download/release%2F1.1/D3a112.zip)
-- [다운로드  1.0.1](https://github.com/sunghyuk/D3-Skill-Assistant/files/164639/d3a_101.zip) 
-
+- [다운로드 1.2] (https://github.com/sunghyuk/D3-Skill-Assistant/releases/download/1.2/d3a-1.2.zip)
 
 ## 변경사항 
+
+### 1.2 
+- 타이머 시작 전 딜레이 제거 (#5)
+- 마우스 이벤트 후 타이머 지연 오류 수정 (#5)
 
 ### 1.1.0
 - 마우스 이벤트 추가 (hjwhang님 감사합니다)
