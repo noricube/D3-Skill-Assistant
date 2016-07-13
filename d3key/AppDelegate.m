@@ -41,9 +41,16 @@
     
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
+    
+    // app name, version
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    NSString *aboutString = [NSString stringWithFormat:@"%@ %@", [info objectForKey:@"CFBundleDisplayName"], [info objectForKey:@"CFBundleShortVersionString"]];
+    self.aboutMenuItem.title = aboutString;
+    
 }
 
 - (void) applicationWillFinishLaunching:(NSNotification *)notification {
+    
     self.timers = [[NSMutableArray alloc] initWithCapacity:6];
     self.timersQueue = dispatch_queue_create("sunghyuk.d3key.timerQueue", DISPATCH_QUEUE_CONCURRENT);
     
@@ -90,13 +97,21 @@
 - (void) addTimer:(NSString *) keyCodeKey andWith:(NSString *) delayKey {
     NSUInteger delay = [[self.keyConfig valueForKey:delayKey] unsignedIntegerValue];
     NSUInteger keyCode = [[self.keyConfig valueForKey:keyCodeKey] unsignedIntegerValue];
+    BOOL mouseLeftKey = [@"mouseLeftKey" isEqualToString:keyCodeKey] ? YES : NO;
+    BOOL mouseRightKey = [@"mouseRightKey" isEqualToString:keyCodeKey] ? YES : NO;
     if (delay > 0) {
         if (delay < 100) {
             delay = 100;
         }
         NSTimeInterval interval = delay*1.0 / 1000;
-        NSDictionary *userInfo = @{@"keyCode":[NSNumber numberWithUnsignedInteger:keyCode]};
-        NSLog(@"timer - keyCode: %@, interval: %f", [NSNumber numberWithUnsignedInteger:keyCode], interval);
+        NSDictionary *userInfo = @{
+                                   @"keyCode":[NSNumber numberWithUnsignedInteger:keyCode],
+                                   @"delay":[NSNumber numberWithUnsignedInteger:delay],
+                                   @"mouseLeftKey": [NSNumber numberWithBool:mouseLeftKey],
+                                   @"mouseRightKey": [NSNumber numberWithBool:mouseRightKey]
+                                   };
+        NSLog(@"add timer - userinfo: %@, interval: %f", userInfo, interval);
+        [self fireEvent:userInfo];
         MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
         [self.timers addObject:timer];
     }
@@ -140,20 +155,22 @@
 - (void) rightClick
 {
     [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseDown];
-    sleep(2);
+    usleep(10);
     [self postMouseEvent:kCGMouseButtonRight eventType: kCGEventRightMouseUp];
 }
 
 - (void) leftClick
 {
     [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseDown];
-    sleep(2);
+    usleep(10);
     [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseUp];
 }
 
-- (void)timerFireMethod:(NSTimer *)timer {
-    NSDictionary *userInfo = timer.userInfo;
+- (void) fireEvent:(NSDictionary *) userInfo {
     NSUInteger keyCode = [[userInfo objectForKey:@"keyCode"] unsignedIntegerValue];
+    NSUInteger delay = [[userInfo objectForKey:@"delay"] unsignedIntegerValue];
+    BOOL mouseLeftKey = [[userInfo objectForKey:@"mouseLeftKey"] boolValue];
+    BOOL mouseRightKey = [[userInfo objectForKey:@"mouseRightKey"] boolValue];
     
     if ([[NSRunningApplication runningApplicationsWithBundleIdentifier:kDiablo3AppId] count]) {
         pid_t pid = [(NSRunningApplication*)[[NSRunningApplication runningApplicationsWithBundleIdentifier:kDiablo3AppId] objectAtIndex:0] processIdentifier];
@@ -166,11 +183,14 @@
         OSStatus err = GetProcessForPID(pid, &psn);
         if (err == noErr) {
             // mouse event
-            if (keyCode == kCGMouseButtonRight) {
+            if (mouseRightKey) {
+                NSLog(@"fire event: mouseRightKey, %tu", delay);
                 [self rightClick];
-            } else if (keyCode == kCGMouseButtonLeft) {
+            } else if (mouseLeftKey) {
+                NSLog(@"fire event: mouseLeftKey, %tu", delay);
                 [self leftClick];
             } else {
+                NSLog(@"fire event: %@, %tu", [[D3KeyConfigService sharedService] stringWithKeycode:keyCode], delay);
                 //resultcode = SetFrontProcess(&psn);
                 // see HIToolbox/Events.h for key codes
                 qKeyDown = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)keyCode, true);
@@ -188,6 +208,10 @@
     }
 }
 
+- (void)timerFireMethod:(NSTimer *)timer {
+    [self fireEvent:timer.userInfo];
+}
+
 #pragma mark notification observer
 
 - (void) addNotificationObserver {
@@ -195,11 +219,9 @@
         NSString *action = [note.userInfo objectForKey:@"action"];
         if ([action isEqualToString:@"start"]) {
             // start operation
-            NSLog(@"receive start note");
             [self startTimer];
         } else if ([action isEqualToString:@"stop"]) {
             // stop operation
-            NSLog(@"receive stop note, stop timer");
             [self stopTimer];
         }
     }];
