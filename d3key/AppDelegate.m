@@ -105,6 +105,7 @@
                                    @"mouseRightKey": [NSNumber numberWithBool:mouseRightKey]
                                    };
         NSLog(@"add timer - userinfo: %@, interval: %f", userInfo, interval);
+        [self fireEvent:userInfo];
         MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
         [self.timers addObject:timer];
     }
@@ -159,8 +160,7 @@
     [self postMouseEvent:kCGMouseButtonLeft eventType: kCGEventLeftMouseUp];
 }
 
-- (void)timerFireMethod:(NSTimer *)timer {
-    NSDictionary *userInfo = timer.userInfo;
+- (void) fireEvent:(NSDictionary *) userInfo {
     NSUInteger keyCode = [[userInfo objectForKey:@"keyCode"] unsignedIntegerValue];
     NSUInteger delay = [[userInfo objectForKey:@"delay"] unsignedIntegerValue];
     BOOL mouseLeftKey = [[userInfo objectForKey:@"mouseLeftKey"] boolValue];
@@ -200,6 +200,10 @@
             NSLog(@"error? %@", [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil]);
         }
     }
+}
+
+- (void)timerFireMethod:(NSTimer *)timer {
+    [self fireEvent:timer.userInfo];
 }
 
 #pragma mark notification observer
