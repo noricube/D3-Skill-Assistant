@@ -250,7 +250,7 @@
         return;
     }
     NSLog(@"register global key event monitor");
-    _gEvent = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
+    _gEvent = [NSEvent addGlobalMonitorForEventsMatchingMask:(NSKeyDownMask|NSFlagsChangedMask) handler:^(NSEvent *event) {
         
         if (![[NSRunningApplication runningApplicationsWithBundleIdentifier:kDiablo3AppId] count]) {
             NSLog(@"Diablo3 is not running");
