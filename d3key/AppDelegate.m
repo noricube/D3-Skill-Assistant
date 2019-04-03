@@ -37,7 +37,7 @@
     //self.statusBar.title = @"D3A";
     
     // you can also set an image
-    self.statusBar.image = [NSImage imageNamed:@"d3a_icon_16x16.tiff"];
+    self.statusBar.image = [NSImage imageNamed:@"StatusBar"];
     
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
