@@ -12,6 +12,7 @@
 
 @implementation D3KeyConfig
 
+@synthesize memo;
 @synthesize startKey;
 @synthesize stopKey1, stopKey2, stopKey3, stopKey4, stopKey5;
 @synthesize skillDelay1, skillDelay2, skillDelay3, skillDelay4, skillDelay5, skillDelay6, mouseRightDelay, mouseLeftDelay;
@@ -34,6 +35,7 @@
 + (D3KeyConfig *) defaultKeyConfig {
     D3KeyConfig * config = [[D3KeyConfig alloc] init];
     //config.startKey = kVK_Space;
+    config.memo = @"";
     config.startKey = kVK_ANSI_Grave;
     config.stopKey1 = kVK_Return;
     config.stopKey2 = kVK_ANSI_T; // town portal

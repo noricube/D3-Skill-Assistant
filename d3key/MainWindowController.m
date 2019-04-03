@@ -48,6 +48,8 @@
         NSTextField *field = [self valueForKey:name];
         field.delegate = self;
     }
+    NSTextField *field = [self valueForKey:@"memoField"];
+    field.delegate = self;
 }
 
 - (void)windowDidLoad {
@@ -106,6 +108,10 @@
     delay = [[config valueForKey:@"mouseRightDelay"] unsignedIntegerValue];
     field.stringValue = [NSString stringWithFormat:@"%tu", delay];
     
+    field = [self valueForKey:@"memoField"];
+    NSString *memo = [config valueForKey:@"memo"];
+    field.stringValue = memo;
+    
 }
 
 - (D3KeyConfig *) getFieldValues {
@@ -113,6 +119,7 @@
     if (startKeyField.stringValue) {
         config.startKey = [[D3KeyConfigService sharedService] keyCodeWithString:startKeyField.stringValue];
     }
+    
     for (int i = 1; i < 6; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"stopKeyField%d", i]];
         if (field.stringValue && ![field.stringValue isEqualToString:@"Unknown"]) {
@@ -140,6 +147,10 @@
     field = [self valueForKey:@"mouseRightDelayField"];
     [config setValue:[NSNumber numberWithUnsignedInteger:[field.stringValue integerValue]]
               forKey:@"mouseRightDelay"];
+    
+    field = [self valueForKey:@"memoField"];
+    [config setValue:field.stringValue
+              forKey:@"memo"];
     
     return config;
 }

@@ -14,7 +14,7 @@
     IBOutlet NSSegmentedControl *configIdSegment;
     IBOutlet NSSegmentedControl *activeSegment;
     
-    IBOutlet NSButton *activateButton;
+    IBOutlet NSTextField *memoField;
     
     IBOutlet NSTextField *startKeyField;
     
