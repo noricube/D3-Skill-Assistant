@@ -37,7 +37,7 @@
     //self.statusBar.title = @"D3A";
     
     // you can also set an image
-    self.statusBar.image = [NSImage imageNamed:@"d3a_statusbar.png"];
+    self.statusBar.image = [NSImage imageNamed:@"d3a_icon_16x16.tiff"];
     
     self.statusBar.menu = self.statusMenu;
     self.statusBar.highlightMode = YES;
@@ -250,7 +250,7 @@
         return;
     }
     NSLog(@"register global key event monitor");
-    _gEvent = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
+    _gEvent = [NSEvent addGlobalMonitorForEventsMatchingMask:(NSKeyDownMask|NSFlagsChangedMask) handler:^(NSEvent *event) {
         
         if (![[NSRunningApplication runningApplicationsWithBundleIdentifier:kDiablo3AppId] count]) {
             NSLog(@"Diablo3 is not running");
