@@ -43,7 +43,7 @@
     IBOutlet NSTextField *mouseRightDelayField;
     
 }
-
+- (void) changePreset:(NSInteger)presetNum;
 - (IBAction) selectConfigIdSegemnt:(id)sender;
 - (IBAction) selectActiveSegment:(id)sender;
 

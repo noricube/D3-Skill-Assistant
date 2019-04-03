@@ -252,6 +252,29 @@
     NSLog(@"register global key event monitor");
     _gEvent = [NSEvent addGlobalMonitorForEventsMatchingMask:(NSKeyDownMask|NSFlagsChangedMask) handler:^(NSEvent *event) {
         
+        if (event.keyCode == 0x7A || event.keyCode == 0x78 || event.keyCode == 0x63 || event.keyCode == 0x76 || event.keyCode == 0x60) {
+            // F1, F2, F3, F4, F5, change preset
+            NSInteger presetNum = 0;
+            switch (event.keyCode) {
+                case 0x7A:
+                    presetNum = 0;
+                    break;
+                case 0x78:
+                    presetNum = 1;
+                    break;
+                case 0x63:
+                    presetNum = 2;
+                    break;
+                case 0x76:
+                    presetNum = 3;
+                    break;
+                case 0x60:
+                    presetNum = 4;
+                    break;
+            }
+            [self.windowController changePreset:presetNum];
+        }
+        
         if (![[NSRunningApplication runningApplicationsWithBundleIdentifier:kDiablo3AppId] count]) {
             NSLog(@"Diablo3 is not running");
             return;

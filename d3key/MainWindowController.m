@@ -162,6 +162,15 @@
     [[D3KeyConfigService sharedService] saveConfig:config withConfigId:configId];
 }
 
+- (void)changePreset:(NSInteger)presetNum {
+    configIdSegment.selectedSegment = presetNum;
+    NSString *configId = [NSString stringWithFormat:@"%li", presetNum + 1];
+    NSLog(@"change configId: %@", configId);
+    [self loadConfig:configId];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyConfigChangedNotification object:nil userInfo:@{@"configId":configId}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyStartStopNotification object:nil userInfo:@{@"action": @"stop"}];
+}
+
 #pragma mark IBAction
 
 - (IBAction) selectConfigIdSegemnt:(id)sender {
@@ -183,7 +192,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyDeactivatedNotification object:nil];
     }
 }
-
 
 #pragma mark NSTextFieldDelegate
 
