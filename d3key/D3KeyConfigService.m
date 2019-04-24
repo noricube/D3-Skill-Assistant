@@ -91,6 +91,13 @@ static NSArray *_keyStrings;
     D3KeyConfig *config;
     if (data) {
         config = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        key = [NSString stringWithFormat:@"%@_%@_memo", kD3KeyConfigUserDefaultsKey, configId];
+        NSString *memo = [defaults objectForKey:key];
+        if (memo) {
+            config.memo = memo;
+        } else {
+            config.memo = @"";
+        }
     }
     if (!config) {
         NSLog(@"load default config");
@@ -105,6 +112,9 @@ static NSArray *_keyStrings;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:config];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:data forKey:key];
+    [defaults synchronize];
+    key = [NSString stringWithFormat:@"%@_%@_memo", kD3KeyConfigUserDefaultsKey, configId];
+    [defaults setObject:config.memo forKey:key];
     [defaults synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyConfigChangedNotification object:nil userInfo:@{@"configId":configId}];
 }

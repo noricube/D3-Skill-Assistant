@@ -15,11 +15,6 @@
 		B2356B931C8D674C00EA40B1 /* D3KeyConfigService.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B921C8D674C00EA40B1 /* D3KeyConfigService.m */; };
 		B2356B991C8E966200EA40B1 /* KeyEventCaptureService.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */; };
 		B2356BA11C8EA40D00EA40B1 /* D3DelayTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */; };
-		B2356BA31C8FA93500EA40B1 /* d3a_statusbar.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */; };
-		B2356BA51C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */; };
-		B2356BA71C8FAA1A00EA40B1 /* d3a_icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */; };
-		B2356BA91C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */; };
-		B2356BAB1C8FAA8B00EA40B1 /* d3a_icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */; };
 		B2356BAD1C8FDD0200EA40B1 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */; };
 		B2E66EDE1C6D9AB000134E90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */; };
 		B2E66EE11C6D9AB000134E90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EE01C6D9AB000134E90 /* main.m */; };
@@ -63,11 +58,6 @@
 		B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEventCaptureService.m; sourceTree = "<group>"; };
 		B2356B9F1C8EA40D00EA40B1 /* D3DelayTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DelayTextField.h; sourceTree = "<group>"; };
 		B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DelayTextField.m; sourceTree = "<group>"; };
-		B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_statusbar.png; sourceTree = "<group>"; };
-		B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d3a_icon_16x16@2x.png"; sourceTree = "<group>"; };
-		B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_icon_16x16.png; sourceTree = "<group>"; };
-		B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d3a_icon_256x256@2x.png"; sourceTree = "<group>"; };
-		B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d3a_icon_256x256.png; sourceTree = "<group>"; };
 		B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		B2E66ED91C6D9AB000134E90 /* D3 Skill Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Skill Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,11 +124,6 @@
 		B2E66EDB1C6D9AB000134E90 /* d3key */ = {
 			isa = PBXGroup;
 			children = (
-				B2356BA21C8FA93500EA40B1 /* d3a_statusbar.png */,
-				B2356BA61C8FAA1A00EA40B1 /* d3a_icon_16x16.png */,
-				B2356BA41C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png */,
-				B2356BAA1C8FAA8B00EA40B1 /* d3a_icon_256x256.png */,
-				B2356BA81C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png */,
 				B2143C6B1C887A3A00AC3E66 /* MSWeakTimer.h */,
 				B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */,
 				B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */,
@@ -274,6 +259,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -294,13 +280,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2356BAB1C8FAA8B00EA40B1 /* d3a_icon_256x256.png in Resources */,
-				B2356BA51C8FA9F900EA40B1 /* d3a_icon_16x16@2x.png in Resources */,
-				B2356BA31C8FA93500EA40B1 /* d3a_statusbar.png in Resources */,
 				B2E66EE31C6D9AB000134E90 /* Assets.xcassets in Resources */,
 				B2E66EE61C6D9AB000134E90 /* MainMenu.xib in Resources */,
-				B2356BA91C8FAA7300EA40B1 /* d3a_icon_256x256@2x.png in Resources */,
-				B2356BA71C8FAA1A00EA40B1 /* d3a_icon_16x16.png in Resources */,
 				B2356B871C869AEF00EA40B1 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

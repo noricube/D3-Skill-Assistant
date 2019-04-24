@@ -12,6 +12,8 @@
 
 @property (assign) CGKeyCode startKey;
 
+@property NSString *memo;
+
 @property CGKeyCode stopKey1;
 @property CGKeyCode stopKey2;
 @property CGKeyCode stopKey3;

@@ -48,6 +48,8 @@
         NSTextField *field = [self valueForKey:name];
         field.delegate = self;
     }
+    NSTextField *field = [self valueForKey:@"memoField"];
+    field.delegate = self;
 }
 
 - (void)windowDidLoad {
@@ -106,6 +108,10 @@
     delay = [[config valueForKey:@"mouseRightDelay"] unsignedIntegerValue];
     field.stringValue = [NSString stringWithFormat:@"%tu", delay];
     
+    field = [self valueForKey:@"memoField"];
+    NSString *memo = [config valueForKey:@"memo"];
+    field.stringValue = memo;
+    
 }
 
 - (D3KeyConfig *) getFieldValues {
@@ -113,6 +119,7 @@
     if (startKeyField.stringValue) {
         config.startKey = [[D3KeyConfigService sharedService] keyCodeWithString:startKeyField.stringValue];
     }
+    
     for (int i = 1; i < 6; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"stopKeyField%d", i]];
         if (field.stringValue && ![field.stringValue isEqualToString:@"Unknown"]) {
@@ -141,6 +148,10 @@
     [config setValue:[NSNumber numberWithUnsignedInteger:[field.stringValue integerValue]]
               forKey:@"mouseRightDelay"];
     
+    field = [self valueForKey:@"memoField"];
+    [config setValue:field.stringValue
+              forKey:@"memo"];
+    
     return config;
 }
 
@@ -149,6 +160,15 @@
     NSString *configId = [NSString stringWithFormat:@"%li", configIdSegment.selectedSegment + 1];
     D3KeyConfig *config = [self getFieldValues];
     [[D3KeyConfigService sharedService] saveConfig:config withConfigId:configId];
+}
+
+- (void)changePreset:(NSInteger)presetNum {
+    configIdSegment.selectedSegment = presetNum;
+    NSString *configId = [NSString stringWithFormat:@"%li", presetNum + 1];
+    NSLog(@"change configId: %@", configId);
+    [self loadConfig:configId];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyConfigChangedNotification object:nil userInfo:@{@"configId":configId}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyStartStopNotification object:nil userInfo:@{@"action": @"stop"}];
 }
 
 #pragma mark IBAction
@@ -172,7 +192,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kD3KeyDeactivatedNotification object:nil];
     }
 }
-
 
 #pragma mark NSTextFieldDelegate
 
