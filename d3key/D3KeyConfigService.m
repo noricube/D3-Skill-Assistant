@@ -74,7 +74,7 @@ static NSArray *_keyStrings;
 }
 
 - (NSString *) stringWithKeycode:(CGKeyCode) keyCode {
-    int len = sizeof(_keyCodes);
+    int len = sizeof(_keyCodes) / sizeof(CGKeyCode);
     for (int i = 0; i < len; i++) {
         CGKeyCode code = _keyCodes[i];
         if (code == keyCode) {
