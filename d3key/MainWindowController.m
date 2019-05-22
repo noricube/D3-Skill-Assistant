@@ -73,13 +73,13 @@
 }
 
 - (void) setFieldValues:(D3KeyConfig *) config {
-    if (config.startKey != 0xFF) {
+    if (config.startKey != 0xFE) {
         startKeyField.stringValue = [[D3KeyConfigService sharedService] stringWithKeycode:config.startKey];
     }
     for (int i = 1; i < 6; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"stopKeyField%d", i]];
         CGKeyCode keyCode = [[config valueForKey:[NSString stringWithFormat:@"stopKey%d", i]] unsignedShortValue];
-        if (keyCode != 0xFF) {
+        if (keyCode != 0xFE) {
             field.stringValue = [[D3KeyConfigService sharedService] stringWithKeycode:keyCode];
         } else {
             field.stringValue = @"";
@@ -88,7 +88,7 @@
     for (int i = 1; i < 7; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"skillKeyField%d", i]];
         CGKeyCode keyCode = [[config valueForKey:[NSString stringWithFormat:@"skillKey%d", i]] unsignedShortValue];
-        if (keyCode != 0xFF) {
+        if (keyCode != 0xFE) {
             field.stringValue = [[D3KeyConfigService sharedService] stringWithKeycode:keyCode];
         } else {
             field.stringValue = @"";
@@ -125,12 +125,18 @@
         if (field.stringValue && ![field.stringValue isEqualToString:@"Unknown"]) {
             [config setValue:[NSNumber numberWithUnsignedShort:[[D3KeyConfigService sharedService] keyCodeWithString:field.stringValue]]
                       forKey:[NSString stringWithFormat:@"stopKey%d", i]];
+        } else {
+            [config setValue:[NSNumber numberWithUnsignedShort:0xFE]
+                      forKey:[NSString stringWithFormat:@"stopKey%d", i]];
         }
     }
     for (int i = 1; i < 7; i++) {
         NSTextField *field = [self valueForKey:[NSString stringWithFormat:@"skillKeyField%d", i]];
         if (field.stringValue && ![field.stringValue isEqualToString:@"Unknown"]) {
             [config setValue:[NSNumber numberWithUnsignedShort:[[D3KeyConfigService sharedService] keyCodeWithString:field.stringValue]]
+                      forKey:[NSString stringWithFormat:@"skillKey%d", i]];
+        } else {
+            [config setValue:[NSNumber numberWithUnsignedShort:0xFE]
                       forKey:[NSString stringWithFormat:@"skillKey%d", i]];
         }
     }
