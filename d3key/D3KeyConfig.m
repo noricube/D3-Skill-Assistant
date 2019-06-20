@@ -46,8 +46,8 @@
     config.skillKey2 = kVK_ANSI_2;
     config.skillKey3 = kVK_ANSI_3;
     config.skillKey4 = kVK_ANSI_4;
-    config.skillKey5 = 0xFF;
-    config.skillKey6 = 0xFF;
+    config.skillKey5 = 0xFE;
+    config.skillKey6 = 0xFE;
     config.mouseRightKey = kCGMouseButtonRight;
     config.mouseLeftKey = kCGMouseButtonLeft;
     return config;
