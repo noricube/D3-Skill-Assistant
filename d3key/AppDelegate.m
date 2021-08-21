@@ -84,6 +84,11 @@
     [self removeEventMonitor];
 }
 
+-(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
+    return YES;
+}
+
+
 #pragma mark IBAction
 
 - (IBAction)statusPreferences:(id)sender {
