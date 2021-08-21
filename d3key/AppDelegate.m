@@ -50,6 +50,7 @@
 }
 
 - (void) applicationWillFinishLaunching:(NSNotification *)notification {
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
     
     self.timers = [[NSMutableArray alloc] initWithCapacity:6];
     self.timersQueue = dispatch_queue_create("sunghyuk.d3key.timerQueue", DISPATCH_QUEUE_CONCURRENT);
