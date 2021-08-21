@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B2143C6D1C887A3A00AC3E66 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */; };
+		8CA731B126D1900B00A75993 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA731B026D1900B00A75993 /* AppDelegate.m */; };
 		B2356B851C86995D00EA40B1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B841C86995D00EA40B1 /* MainWindowController.m */; };
 		B2356B871C869AEF00EA40B1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2356B861C869AEF00EA40B1 /* MainWindow.xib */; };
 		B2356B8A1C86A6A900EA40B1 /* D3KeyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B891C86A6A900EA40B1 /* D3KeyConfig.m */; };
@@ -16,7 +16,6 @@
 		B2356B991C8E966200EA40B1 /* KeyEventCaptureService.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356B981C8E966200EA40B1 /* KeyEventCaptureService.m */; };
 		B2356BA11C8EA40D00EA40B1 /* D3DelayTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B2356BA01C8EA40D00EA40B1 /* D3DelayTextField.m */; };
 		B2356BAD1C8FDD0200EA40B1 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */; };
-		B2E66EDE1C6D9AB000134E90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */; };
 		B2E66EE11C6D9AB000134E90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E66EE01C6D9AB000134E90 /* main.m */; };
 		B2E66EE31C6D9AB000134E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2E66EE21C6D9AB000134E90 /* Assets.xcassets */; };
 		B2E66EE61C6D9AB000134E90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E66EE41C6D9AB000134E90 /* MainMenu.xib */; };
@@ -46,9 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8CA731B026D1900B00A75993 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B2143C671C87F65200AC3E66 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
-		B2143C6B1C887A3A00AC3E66 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
-		B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWeakTimer.m; sourceTree = "<group>"; };
 		B2356B831C86995D00EA40B1 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B2356B841C86995D00EA40B1 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		B2356B861C869AEF00EA40B1 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 		B2356BAC1C8FDD0200EA40B1 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		B2E66ED91C6D9AB000134E90 /* D3 Skill Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Skill Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B2E66EE01C6D9AB000134E90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2E66EE21C6D9AB000134E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2E66EE51C6D9AB000134E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -136,10 +133,8 @@
 				CFFB608F224D02150033C803 /* d3a_icon_16x16@2x.tiff */,
 				CFFB6090224D02150033C803 /* d3a_icon_256x256.tiff */,
 				CFFB608D224D02150033C803 /* d3a_icon_256x256@2x.tiff */,
-				B2143C6B1C887A3A00AC3E66 /* MSWeakTimer.h */,
-				B2143C6C1C887A3A00AC3E66 /* MSWeakTimer.m */,
+				8CA731B026D1900B00A75993 /* AppDelegate.m */,
 				B2E66EDC1C6D9AB000134E90 /* AppDelegate.h */,
-				B2E66EDD1C6D9AB000134E90 /* AppDelegate.m */,
 				B2E66EE21C6D9AB000134E90 /* Assets.xcassets */,
 				B2E66EE41C6D9AB000134E90 /* MainMenu.xib */,
 				B2E66EE71C6D9AB000134E90 /* Info.plist */,
@@ -325,13 +320,12 @@
 			files = (
 				B2356B931C8D674C00EA40B1 /* D3KeyConfigService.m in Sources */,
 				B2356B851C86995D00EA40B1 /* MainWindowController.m in Sources */,
+				8CA731B126D1900B00A75993 /* AppDelegate.m in Sources */,
 				B2E66EE11C6D9AB000134E90 /* main.m in Sources */,
 				B2356B991C8E966200EA40B1 /* KeyEventCaptureService.m in Sources */,
 				B2356B901C89794500EA40B1 /* D3KeyTextField.m in Sources */,
 				B2356BA11C8EA40D00EA40B1 /* D3DelayTextField.m in Sources */,
 				B2356B8A1C86A6A900EA40B1 /* D3KeyConfig.m in Sources */,
-				B2E66EDE1C6D9AB000134E90 /* AppDelegate.m in Sources */,
-				B2143C6D1C887A3A00AC3E66 /* MSWeakTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,6 @@
 #import "MainWindowController.h"
 #import "D3KeyConfig.h"
 #import "D3KeyConfigService.h"
-#import "MSWeakTimer.h"
 #import <ApplicationServices/ApplicationServices.h>
 #include "const.h"
 
@@ -22,7 +21,7 @@
 
 @property (nonatomic, strong) D3KeyConfig *keyConfig;
 @property (nonatomic, strong) NSMutableArray *timers;
-@property (strong, nonatomic) dispatch_queue_t timersQueue;
+@property (strong, nonatomic) NSRunLoop *timerLoop;
 
 @end
 
@@ -54,7 +53,7 @@
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
     
     self.timers = [[NSMutableArray alloc] initWithCapacity:6];
-    self.timersQueue = dispatch_queue_create("sunghyuk.d3key.timerQueue", DISPATCH_QUEUE_CONCURRENT);
+    self.timerLoop = nil;
     
     // load config
     self.keyConfig = [[D3KeyConfigService sharedService] loadConfig:@"1"];
@@ -73,11 +72,12 @@
     if (accessibilityEnabled) {
         [self registerEventMonitor];
     }
+    
+    [NSThread detachNewThreadSelector:@selector(startTimerThread:) toTarget:self withObject:nil];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -85,7 +85,16 @@
     [self removeEventMonitor];
 }
 
--(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
+- (void)startTimerThread:(NSObject *)obj {
+    self.timerLoop = [NSRunLoop currentRunLoop];
+    while (true) {
+        usleep(30000);
+        [self.timerLoop runMode:NSEventTrackingRunLoopMode beforeDate:[NSDate distantFuture]];
+        [self.timerLoop run];
+    }
+}
+
+- (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app {
     return YES;
 }
 
@@ -119,7 +128,9 @@
                                    };
         NSLog(@"add timer - userinfo: %@, interval: %f", userInfo, interval);
         [self fireEvent:userInfo];
-        MSWeakTimer *timer = [MSWeakTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES dispatchQueue:self.timersQueue];
+
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFireMethod:) userInfo:userInfo repeats:YES];
+        [self.timerLoop addTimer:timer forMode:NSEventTrackingRunLoopMode];
         [self.timers addObject:timer];
     }
 }
@@ -138,6 +149,7 @@
     }
     [self addTimer:@"mouseLeftKey" andWith:@"mouseLeftDelay"];
     [self addTimer:@"mouseRightKey" andWith:@"mouseRightDelay"];
+    
 }
 
 - (void) stopTimer {
@@ -295,6 +307,10 @@
         NSLog(@"remove global key event monitor");
         [NSEvent removeMonitor:_gEvent];
         _gEvent = nil;
+    }
+    if (self.timerLoop != nil) {
+        NSLog(@"stop timer loop");
+        CFRunLoopStop([self.timerLoop getCFRunLoop]);
     }
     if ( _activity != nil ) {
         NSLog(@"stop activity");
