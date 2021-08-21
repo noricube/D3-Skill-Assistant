@@ -29,6 +29,7 @@
 @implementation AppDelegate
 {
     NSEvent *_gEvent;
+    id <NSObject> _activity;
 }
 
 - (void) awakeFromNib {
@@ -126,6 +127,12 @@
 - (void) startTimer {
     NSLog(@"start timers");
     
+    if ( _activity == nil ) {
+        NSActivityOptions options = NSActivityUserInitiatedAllowingIdleSystemSleep;
+        NSString *reason = @"d3 helper";
+        _activity = [[NSProcessInfo processInfo] beginActivityWithOptions:options reason:reason];
+    }
+    
     for (int i = 1; i < 7; i++) {
         [self addTimer:[NSString stringWithFormat:@"skillKey%d", i] andWith:[NSString stringWithFormat:@"skillDelay%d", i]];
     }
@@ -139,6 +146,11 @@
         [t invalidate];
     }
     [self.timers removeAllObjects];
+    
+    if ( _activity != nil ) {
+        [[NSProcessInfo processInfo] endActivity:_activity];
+        _activity = nil;
+    }
 }
 
 - (BOOL) isTimerRunning {
@@ -211,6 +223,7 @@
         } else {
             NSLog(@"error? %@", [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil]);
         }
+        
     }
 }
 
@@ -282,6 +295,11 @@
         NSLog(@"remove global key event monitor");
         [NSEvent removeMonitor:_gEvent];
         _gEvent = nil;
+    }
+    if ( _activity != nil ) {
+        NSLog(@"stop activity");
+        [[NSProcessInfo processInfo] endActivity:_activity];
+        _activity = nil;
     }
 }
 
